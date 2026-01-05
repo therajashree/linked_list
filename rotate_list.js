@@ -12,28 +12,28 @@ Output: [2,0,1]
 */
 
 function rotateRight(head, k) {
-    if (head === null || head.next === null || k === 0) return head;
+    if (head === null || head.next === null) return head;
 
-    let tail = head;
+    // Calculate the length of the list
     let length = 1;
-
-    while(tail.next != null) {
-        length++;
+    let tail = head;
+    while (tail.next !== null) {
         tail = tail.next;
+        length++;
     }
     
+    // Make the list circular
     tail.next = head;
 
+    // Find the new head and tail
     k = k % length;
-    let stepToHead = length - k;
-
-    let newTail = head;
-    while(stepToHead > 0) {
+    let stepsToNewHead = length - k;
+    let newTail = tail;
+    while (stepsToNewHead-- > 0) {
         newTail = newTail.next;
-        stepToHead--;
     }
-    let newHead = newTail.next;
+    const newHead = newTail.next;
     newTail.next = null;
-
+    
     return newHead;
 }

@@ -39,7 +39,7 @@ function swapPair(head) {
 
     let current = dummy;
 
-    while(current !== null && current.next !==null) {
+    while (current.next !== null && current.next.next !==null) {
         let firstNode = current.next;
         let secondNode = current.next.next;
 
