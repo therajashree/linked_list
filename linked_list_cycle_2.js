@@ -25,18 +25,35 @@ function detectCycle(head) {
     let slow = head;
     let fast = head;
 
-    while(fast !== null && fast.next !== null ) {
+    while (fast !== null && fast.next !== null ) {
         slow = slow.next;
         fast = fast.next.next;
 
-        if(slow === fast) {
+        if (slow === fast) {
             let curr = head;
-            while(curr !== head) {
+            while (curr !== slow) {
                 curr = curr.next;
                 slow = slow.next;
             }
-            return slow;
+            return curr;
         }
     }
+    return null;
+}
+
+
+function detectCycle2(head) {
+    let visited = new Set();
+
+    let curr = head;
+    while (curr !== null) {
+        if (visited.has(curr)) {
+            return curr;
+        }
+
+        visited.add(curr);
+        curr = curr.next;
+    }
+
     return null;
 }

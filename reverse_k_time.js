@@ -16,7 +16,7 @@ Output: [3,2,1,4,5]
 
 
 function reverseKGroup(head, k) {
-    if(head === null || k === 1) return head;
+    if (head === null || k === 1) return head;
 
     const dummy = new ListNode(0);
     dummy.next = head;

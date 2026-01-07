@@ -28,7 +28,7 @@ function rotateRight(head, k) {
     // Find the new head and tail
     k = k % length;
     let stepsToNewHead = length - k;
-    let newTail = tail;
+    let newTail = head;
     while (stepsToNewHead-- > 0) {
         newTail = newTail.next;
     }
